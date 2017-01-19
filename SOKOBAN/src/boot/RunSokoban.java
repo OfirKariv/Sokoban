@@ -10,7 +10,7 @@ public class RunSokoban {
     public static void main(String[] args)
 
     {
-
+	// TEST FOR GIT
 	MyView ui = new MyView();
 	MyModel m = new MyModel();
 	MyController c = new MyController();
