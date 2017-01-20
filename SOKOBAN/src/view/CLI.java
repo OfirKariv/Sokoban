@@ -10,8 +10,8 @@ import controller.ExitCommand;
 import controller.LoadCommand;
 import controller.MoveCommand;
 import controller.SaveCommand;
-import model.Level;
-import model.Policy;
+import model.data.Level;
+import model.policy.Policy;
 
 public class CLI implements Invoker {
 

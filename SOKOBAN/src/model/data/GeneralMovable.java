@@ -1,4 +1,6 @@
-package model;
+package model.data;
+
+import common.Position;
 
 public abstract class GeneralMovable extends GameObject implements movable {
 

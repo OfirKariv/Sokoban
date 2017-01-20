@@ -1,6 +1,8 @@
-package model;
+package model.data;
 
 import java.io.Serializable;
+
+import common.Position;
 
 public abstract class GameObject implements  Serializable{
 	

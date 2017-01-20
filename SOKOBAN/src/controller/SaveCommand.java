@@ -3,11 +3,11 @@ package controller;
 
 import java.util.HashMap;
 
-import model.Level;
-import model.LevelSaver;
-import model.MyObjectLevelSaver;
-import model.MyTextLevelSaver;
-import model.MyXMLLevelSaver;
+import model.data.Level;
+import model.data.LevelSaver;
+import model.data.MyObjectLevelSaver;
+import model.data.MyTextLevelSaver;
+import model.data.MyXMLLevelSaver;
 
 public class SaveCommand implements Command {
     HashMap<String, LevelSaver> filetype;

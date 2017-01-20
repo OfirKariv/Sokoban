@@ -1,6 +1,11 @@
-package model;
+package model.policy;
 
 import java.util.ArrayList;
+
+import model.data.Box;
+import model.data.Floor;
+import model.data.GameObject;
+import model.data.Target;
 
 public class MySokobanPolicy implements Policy {
 

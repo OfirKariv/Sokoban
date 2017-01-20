@@ -2,10 +2,10 @@ package view;
 
 import java.util.ArrayList;
 
-import model.Floor;
-import model.GameObject;
-import model.Level;
-import model.Target;
+import model.data.Floor;
+import model.data.GameObject;
+import model.data.Level;
+import model.data.Target;
 
 public class TxtDisplayer implements Displayer {
 

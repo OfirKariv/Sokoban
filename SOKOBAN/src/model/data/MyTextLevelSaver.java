@@ -1,11 +1,13 @@
 
-package model;
+package model.data;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+
+import common.Position;
 
 public class MyTextLevelSaver implements LevelSaver {
 

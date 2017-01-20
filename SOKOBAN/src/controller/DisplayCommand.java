@@ -1,6 +1,6 @@
 package controller;
 
-import model.Level;
+import model.data.Level;
 import view.Displayer;
 import view.TxtDisplayer;
 

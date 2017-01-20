@@ -1,6 +1,6 @@
 package controller;
 
-import model.Level;
+import model.data.Level;
 
 public class ExitCommand implements Command {
 

@@ -4,11 +4,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
-import model.Level;
-import model.LevelLoader;
-import model.MyObjectLevelLoader;
-import model.MyTextLevelLoader;
-import model.MyXMLLevelLoader;
+import model.data.Level;
+import model.data.LevelLoader;
+import model.data.MyObjectLevelLoader;
+import model.data.MyTextLevelLoader;
+import model.data.MyXMLLevelLoader;
 
 public class LoadCommand implements Command {
 

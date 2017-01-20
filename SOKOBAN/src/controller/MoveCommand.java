@@ -1,10 +1,10 @@
 package controller;
 
-import model.GameCharacter;
-import model.Level;
-import model.LevelChanger;
-import model.Policy;
-import model.Position;
+import common.Position;
+import model.data.GameCharacter;
+import model.data.Level;
+import model.data.LevelChanger;
+import model.policy.Policy;
 
 public class MoveCommand implements Command {
 

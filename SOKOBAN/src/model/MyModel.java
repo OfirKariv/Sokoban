@@ -2,13 +2,14 @@ package model;
 
 import java.util.Observable;
 
+import model.data.Level;
+
 public class MyModel extends Observable implements Model {
+
     @Override
     public void notifyObservers(Object arg) {
 
 	System.out.println(arg);
-
-	super.notifyObservers(arg);
 
     }
 
@@ -29,4 +30,11 @@ public class MyModel extends Observable implements Model {
 	// TODO Auto-generated method stub
 	return null;
     }
+
+    @Override
+    public Level move() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
 }

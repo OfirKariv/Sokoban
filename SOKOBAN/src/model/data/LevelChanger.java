@@ -1,6 +1,9 @@
-package model;
+package model.data;
 
 import java.util.ArrayList;
+
+import common.Position;
+import model.policy.Policy;
 
 public class LevelChanger {
 

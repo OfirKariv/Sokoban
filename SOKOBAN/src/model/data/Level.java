@@ -1,7 +1,9 @@
-package model;
+package model.data;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import common.Position;
 
 public class Level implements Serializable {
 
