@@ -23,6 +23,8 @@ package model.data;
 import java.io.IOException;
 import java.io.InputStream;
 
+import model.data.util.Level;
+
 public interface LevelLoader {
     public Level loadLevel(InputStream in) throws IOException, ClassNotFoundException;
 

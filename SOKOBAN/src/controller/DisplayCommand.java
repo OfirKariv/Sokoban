@@ -1,10 +1,10 @@
 package controller;
 
-import model.data.Level;
+import model.data.util.Level;
 import view.Displayer;
 import view.TxtDisplayer;
 
-public class DisplayCommand implements Command {
+public class DisplayCommand extends Command {
 
     private Displayer displayer = null;
 

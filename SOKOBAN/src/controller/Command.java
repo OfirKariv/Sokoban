@@ -1,11 +1,10 @@
 package controller;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.util.List;
 
-import model.data.Level;
+public abstract class Command {
 
-public interface Command {
-    Level execute(String[] args, Level mylevel) throws FileNotFoundException, ClassNotFoundException, IOException;
+    protected List<String> params;
 
+    public abstract void execute();
 }

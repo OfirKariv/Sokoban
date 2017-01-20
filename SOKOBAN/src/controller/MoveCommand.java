@@ -1,17 +1,18 @@
 package controller;
 
-import common.Position;
-import model.data.GameCharacter;
-import model.data.Level;
-import model.data.LevelChanger;
+import model.Model;
+import model.policy.LevelChanger;
 import model.policy.Policy;
 
-public class MoveCommand implements Command {
+public class MoveCommand extends Command {
 
     private LevelChanger change = new LevelChanger();
+    private Model model;
     private int relevantPlayer;
 
     public MoveCommand() {
+
+	this.model = model;
     };
 
     public void setup(int relevantPlayer, Policy policy) {
@@ -20,44 +21,12 @@ public class MoveCommand implements Command {
 
     }
 
-    public Level execute(String[] args, Level myLevel) {
+    @Override
 
-	GameCharacter player = myLevel.getCharacters().get(relevantPlayer);
-	Position playerPos = player.getPosition();
-	change.setLevel(myLevel);
-	switch (args[1]) {
+    public void execute() {
 
-	case "up":
-
-	    change.pathUp(playerPos);
-	    break;
-
-	case "down":
-
-	    change.pathDown(playerPos);
-	    break;
-
-	case "left":
-
-	    change.pathLeft(playerPos);
-	    break;
-
-	case "right":
-
-	    change.pathRight(playerPos);
-
-	    break;
-
-	default:
-	    break;
-
-	}
-	myLevel = change.LevelChange();
-	if (myLevel.isComplete()) {
-	    System.out.println("Level completed!");
-
-	}
-	return myLevel;
+	String direction = params.get(1);
+	model.move(direction);
 
     }
 }

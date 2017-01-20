@@ -6,6 +6,14 @@ import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import model.GameObjectFactory;
+import model.data.util.Floor;
+import model.data.util.GameCharacter;
+import model.data.util.GameObject;
+import model.data.util.GeneralMovable;
+import model.data.util.Level;
+import model.data.util.Target;
+
 public class MyTextLevelLoader implements LevelLoader, Serializable {
 
     private Level outLevel = null;

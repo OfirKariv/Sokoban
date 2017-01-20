@@ -3,6 +3,8 @@ package model.data;
 import java.beans.XMLDecoder;
 import java.io.InputStream;
 
+import model.data.util.Level;
+
 public class MyXMLLevelLoader implements LevelLoader {
 
     public Level loadLevel(InputStream in) {

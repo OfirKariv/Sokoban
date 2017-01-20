@@ -1,15 +1,15 @@
 package model;
 
-import model.data.Level;
+import model.data.util.Level;
 
 public interface Model {
 
-    public Level load();
+    public void load(String path);
 
-    public void save();
+    public void save(String path);
 
     public Level getCurrentLevel();
 
-    public Level move();
+    public void move(String direction);
 
 }

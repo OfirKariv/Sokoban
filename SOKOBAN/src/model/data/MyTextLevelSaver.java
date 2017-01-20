@@ -8,11 +8,13 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import common.Position;
+import model.data.util.GameObject;
+import model.data.util.Level;
 
 public class MyTextLevelSaver implements LevelSaver {
 
     @Override
-    public OutputStream SaveLevel(Level outlevel, String s) {
+    public OutputStream saveLevel(Level outlevel, String s) {
 
 	PrintWriter out;
 	try {

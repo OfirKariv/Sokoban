@@ -1,9 +1,14 @@
-package model.data;
+package model.policy;
 
 import java.util.ArrayList;
 
 import common.Position;
-import model.policy.Policy;
+import model.data.util.Floor;
+import model.data.util.GameCharacter;
+import model.data.util.GameObject;
+import model.data.util.GeneralMovable;
+import model.data.util.Level;
+import model.data.util.Target;
 
 public class LevelChanger {
 

@@ -1,6 +1,6 @@
 package view;
 
-import model.data.Level;
+import model.data.util.Level;
 
 public interface Displayer {
 	

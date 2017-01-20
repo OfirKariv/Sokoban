@@ -2,9 +2,29 @@ package model;
 
 import java.util.Observable;
 
-import model.data.Level;
+import common.Position;
+import model.data.util.GameCharacter;
+import model.data.util.Level;
+import model.policy.LevelChanger;
 
 public class MyModel extends Observable implements Model {
+
+    Level myLevel = null;
+    LevelChanger change = new LevelChanger();
+    private int relevantPlayer;
+
+    public void setLevel(Level level) {
+	this.myLevel = level;
+    }
+
+    public void setRelevantPlayer(int relevantPlayer) {
+	this.relevantPlayer = relevantPlayer;
+    }
+
+    public MyModel() {
+	myLevel = new Level();
+	setRelevantPlayer(0); // default
+    }
 
     @Override
     public void notifyObservers(Object arg) {
@@ -14,27 +34,68 @@ public class MyModel extends Observable implements Model {
     }
 
     @Override
-    public Level load() {
-	// TODO Auto-generated method stub
-	return null;
+    public void load(String path) {
+
+	LoadLevelFactory lvlLoad = new LoadLevelFactory();
+	setLevel(lvlLoad.setFile(path));
+
     }
 
     @Override
-    public void save() {
-	// TODO Auto-generated method stub
+    public void save(String path) {
+
+	SaveLevelFactory lvlSav = new SaveLevelFactory();
+	setLevel(lvlSav.setFile(path));
 
     }
 
     @Override
     public Level getCurrentLevel() {
-	// TODO Auto-generated method stub
-	return null;
+
+	return myLevel;
+
     }
 
     @Override
-    public Level move() {
-	// TODO Auto-generated method stub
-	return null;
-    }
+    public void move(String direction) {
 
+	change.setLevel(this.getCurrentLevel());
+	GameCharacter player = myLevel.getCharacters().get(relevantPlayer);
+	Position playerPos = player.getPosition();
+	change.setLevel(myLevel);
+	switch (direction) {
+
+	case "up":
+
+	    change.pathUp(playerPos);
+	    break;
+
+	case "down":
+
+	    change.pathDown(playerPos);
+	    break;
+
+	case "left":
+
+	    change.pathLeft(playerPos);
+	    break;
+
+	case "right":
+
+	    change.pathRight(playerPos);
+
+	    break;
+
+	default:
+	    break;
+
+	}
+
+	setLevel(change.getLevel());
+	if (myLevel.isComplete()) {
+	    System.out.println("Level completed!");
+
+	}
+
+    }
 }

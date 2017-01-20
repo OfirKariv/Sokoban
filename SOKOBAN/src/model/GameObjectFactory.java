@@ -1,11 +1,18 @@
-package model.data;
+package model;
 
 import java.io.Serializable;
 import java.util.HashMap;
 
+import model.data.util.Box;
+import model.data.util.Floor;
+import model.data.util.GameCharacter;
+import model.data.util.GameObject;
+import model.data.util.Target;
+import model.data.util.Wall;
+
 public class GameObjectFactory implements Serializable {
 
-    HashMap<Character, Creator> gObjectCreator;
+    private HashMap<Character, Creator> gObjectCreator;
 
     //
     public GameObjectFactory() {
@@ -61,4 +68,13 @@ public class GameObjectFactory implements Serializable {
 	return null;
 
     }
+
+    public HashMap<Character, Creator> getgObjectCreator() {
+	return gObjectCreator;
+    }
+
+    public void setgObjectCreator(HashMap<Character, Creator> gObjectCreator) {
+	this.gObjectCreator = gObjectCreator;
+    }
+
 }

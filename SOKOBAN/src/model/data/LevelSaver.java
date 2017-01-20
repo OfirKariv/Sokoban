@@ -2,7 +2,9 @@ package model.data;
 
 import java.io.OutputStream;
 
+import model.data.util.Level;
+
 public interface LevelSaver {
 
-    public OutputStream SaveLevel(Level level, String s);
+    public OutputStream saveLevel(Level level, String s);
 }

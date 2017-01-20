@@ -6,10 +6,12 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 
+import model.data.util.Level;
+
 public class MyObjectLevelSaver implements LevelSaver {
 
 	@Override
-	public OutputStream SaveLevel(Level level,String s) {
+	public OutputStream saveLevel(Level level,String s) {
 		ObjectOutputStream out = null;
 		try {
 			out = new ObjectOutputStream(new FileOutputStream(s));
