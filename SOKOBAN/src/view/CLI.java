@@ -1,6 +1,5 @@
 package view;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -49,7 +48,7 @@ public class CLI extends Observable implements View {
      * Game manager - type work exactly as said. Move example: Move up Load/Save
      * example : Load c:/dir/file.txt
      */
-    public void CLIInvoke() throws ClassNotFoundException, IOException {
+    public void start() {
 	Scanner in = new Scanner(System.in);
 	Thread thread = new Thread(new Runnable() {
 
@@ -84,5 +83,20 @@ public class CLI extends Observable implements View {
 	});
 	thread.start();
     }
+
+    @Override
+    public void Display(Level myLevel) {
+
+	TxtDisplayer dis = new TxtDisplayer();
+	dis.display(mylevel);
+
+    }
+
+    @Override
+    public void DisplayMess(String s) {
+	System.out.println(s);
+
+    }
 }
+
 // mylevel = invoke.get(sa[0]).execute(sa, mylevel);

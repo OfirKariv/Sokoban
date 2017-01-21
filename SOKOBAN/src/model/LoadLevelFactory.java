@@ -16,6 +16,7 @@ public class LoadLevelFactory {
 
     public LoadLevelFactory() {
 
+	System.out.println("In LevelFactory (load) ctor");
 	fileType = new HashMap<String, LevelLoader>();
 	fileType.put("txt", new MyTextLevelLoader());
 	fileType.put("xml", new MyXMLLevelLoader());

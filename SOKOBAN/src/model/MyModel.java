@@ -13,17 +13,17 @@ public class MyModel extends Observable implements Model {
     LevelChanger change = new LevelChanger();
     private int relevantPlayer;
 
+    public MyModel() {
+	myLevel = new Level();
+	setRelevantPlayer(0); // default
+    }
+
     public void setLevel(Level level) {
 	this.myLevel = level;
     }
 
     public void setRelevantPlayer(int relevantPlayer) {
 	this.relevantPlayer = relevantPlayer;
-    }
-
-    public MyModel() {
-	myLevel = new Level();
-	setRelevantPlayer(0); // default
     }
 
     @Override
@@ -38,6 +38,7 @@ public class MyModel extends Observable implements Model {
 
 	LoadLevelFactory lvlLoad = new LoadLevelFactory();
 	setLevel(lvlLoad.setFile(path));
+	System.out.println(lvlLoad.setFile(path));
 
     }
 

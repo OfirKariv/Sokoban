@@ -11,9 +11,9 @@ public class SaveCommand extends Command {
     private Model model;
     HashMap<String, LevelSaver> filetype;
 
-    public SaveCommand() {
+    public SaveCommand(Model model) {
 
-	model = new MyModel();
+	this.model = model;
     }
 
     @Override

@@ -10,7 +10,7 @@ public class MoveCommand extends Command {
     private Model model;
     private int relevantPlayer;
 
-    public MoveCommand() {
+    public MoveCommand(Model model) {
 
 	this.model = model;
     };
@@ -25,7 +25,7 @@ public class MoveCommand extends Command {
 
     public void execute() {
 
-	String direction = params.get(1);
+	String direction = params.get(0);
 	model.move(direction);
 
     }

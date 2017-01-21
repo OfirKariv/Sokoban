@@ -3,7 +3,7 @@ package boot;
 
 import controller.MySokobanController;
 import model.MyModel;
-import view.MyView;
+import view.CLI;
 
 public class RunSokoban {
 
@@ -11,12 +11,12 @@ public class RunSokoban {
 
     {
 
-	MyView ui = new MyView();
+	CLI ui = new CLI();
 	MyModel m = new MyModel();
-	MySokobanController c = new MySokobanController();
+	MySokobanController c = new MySokobanController(m, ui);
 	ui.addObserver(c);
 	m.addObserver(c);
-	c.update(m, "Load c:/level3.txt");
+	ui.start();
 
 	/*
 	 * Policy mySocPol = new MySokobanPolicy(); Displayer TxtDisplayer = new

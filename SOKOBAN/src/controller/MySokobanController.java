@@ -1,7 +1,7 @@
 package controller;
 
 import java.util.HashMap;
-import java.util.List;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
@@ -19,35 +19,35 @@ public class MySokobanController implements Observer {
     public MySokobanController(Model model, View view) {
 	this.model = model;
 	this.view = view;
-
-	initCommands();
-	controller = new Controller() {
-	};
-	controller.start();// to do the start method in controller
+	initCommands(); // creates HashMap
+	controller = new Controller();
+	controller.start();
     }
 
     protected void initCommands() {
 	invoke = new HashMap<String, Command>();
-	invoke.put("Display", new DisplayCommand());
-	invoke.put("Move", new MoveCommand());
-	invoke.put("Load", new LoadCommand());
+	invoke.put("Display", new DisplayCommand(model));
+	invoke.put("Move", new MoveCommand(model));
+	invoke.put("Load", new LoadCommand(model));
 	invoke.put("Exit", new ExitCommand());
-	invoke.put("Save", new SaveCommand());
+	invoke.put("Save", new SaveCommand(model));
     }
 
     public void update(Observable o, Object arg) {
 
-	System.out.println("update of controler");
-	List<String> params = (List<String>) arg;
-	String commandKey = params.remove(0);
+	System.out.println("update of MySokobancontroler");
+	LinkedList<String> params = (LinkedList<String>) arg;
+	String commandKey = params.removeFirst();
 	Command c = invoke.get(commandKey);
-	/*
-	 * if (c == null) { view.displayError("Command " + commandKey +
-	 * " not found"); return; }
-	 */
+
+	if (c == null) {
+
+	    view.DisplayMess("Invalid input :( ");
+	    return;
+	}
 	c.setParams(params);
 	controller.insertCommand(c);
-	// o.notifyObservers(arg);
+
     }
 
 }

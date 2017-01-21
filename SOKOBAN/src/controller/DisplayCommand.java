@@ -1,10 +1,21 @@
 package controller;
 
-import model.data.util.Level;
+import model.Model;
+import model.MyModel;
 import view.Displayer;
-import view.TxtDisplayer;
+import view.MyView;
+import view.View;
 
 public class DisplayCommand extends Command {
+
+    View view = new MyView();
+    Model model = new MyModel();
+
+    public DisplayCommand(Model model) {
+
+	this.model = model;
+
+    }
 
     private Displayer displayer = null;
 
@@ -14,10 +25,10 @@ public class DisplayCommand extends Command {
 
     }
 
-    public Level execute(String[] args, Level mylevel) {
-	TxtDisplayer dis = new TxtDisplayer();
-	dis.display(mylevel);
-	return mylevel;
+    public void execute() {
+
+	view.Display(model.getCurrentLevel());
+
     }
 
 }
