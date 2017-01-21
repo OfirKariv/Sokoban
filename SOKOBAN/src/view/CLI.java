@@ -2,18 +2,18 @@ package view;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Observable;
 import java.util.Scanner;
 
 import controller.Command;
 import controller.DisplayCommand;
-import controller.ExitCommand;
-import controller.LoadCommand;
 import controller.MoveCommand;
-import controller.SaveCommand;
 import model.data.util.Level;
 import model.policy.Policy;
 
-public class CLI implements Invoker {
+public class CLI extends Observable implements View {
 
     private int relevantPlayer;
     private Level mylevel = new Level();
@@ -21,13 +21,12 @@ public class CLI implements Invoker {
 
     public CLI() {
 
-	invoke = new HashMap<String, Command>();
-	invoke.put("Display", new DisplayCommand());
-	invoke.put("Move", new MoveCommand());
-	invoke.put("Load", new LoadCommand());
-	invoke.put("Exit", new ExitCommand());
-	invoke.put("Save", new SaveCommand());
-
+	/*
+	 * invoke = new HashMap<String, Command>(); invoke.put("Display", new
+	 * DisplayCommand()); invoke.put("Move", new MoveCommand());
+	 * invoke.put("Load", new LoadCommand()); invoke.put("Exit", new
+	 * ExitCommand()); invoke.put("Save", new SaveCommand());
+	 */
 	relevantPlayer = 0;
 
     }
@@ -51,27 +50,39 @@ public class CLI implements Invoker {
      * example : Load c:/dir/file.txt
      */
     public void CLIInvoke() throws ClassNotFoundException, IOException {
-	String[] sa;
-	String s;
-
 	Scanner in = new Scanner(System.in);
-	System.out.println("****Welcome to SoKoBan!****:");
-	System.out.println("****Please choose option:****:");
-	System.out.println("Load");
-	System.out.println("Display");
-	System.out.println("Move {up,down,left,right}:");
-	System.out.println("Save");
-	System.out.println("Exit\n");
-	do {
+	Thread thread = new Thread(new Runnable() {
 
-	    System.out.println("Please choose option:");
-	    s = in.nextLine();
+	    @Override
+	    public void run() {
+		System.out.println("****Welcome to SoKoBan!****:");
+		System.out.println("****Please choose option:****:");
+		System.out.println("Load");
+		System.out.println("Display");
+		System.out.println("Move {up,down,left,right}:");
+		System.out.println("Save");
+		System.out.println("Exit\n");
+		while (true) {
+		    String[] sa;
+		    String commandline;
 
-	    sa = s.split(" ");
-	    mylevel = invoke.get(sa[0]).execute(sa, mylevel);
+		    System.out.println("Please choose option:");
+		    commandline = in.nextLine();
 
-	} while (true);
+		    sa = commandline.split(" ");
 
+		    List<String> params = new LinkedList<String>();
+
+		    for (String s : sa) {
+			params.add(s);
+		    }
+
+		    setChanged();
+		    notifyObservers(params);
+		}
+	    }
+	});
+	thread.start();
     }
-
 }
+// mylevel = invoke.get(sa[0]).execute(sa, mylevel);
