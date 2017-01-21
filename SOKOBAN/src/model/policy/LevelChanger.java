@@ -48,11 +48,12 @@ public class LevelChanger {
      * 
      * @return Level
      */
-    public Level LevelChange() {
+    public void LevelChange() {
+
 	GameCharacter player = myLevel.getCharacters().get(revelantPlayer);
 	Position staticPos = new Position();
 	if (path.size() == 0)
-	    return myLevel;
+	    return;
 	staticPos.setPosition(path.get(path.size() - 1).getPosition());
 	Position temp = new Position();
 	if (policy.isPathValid(path)) {
@@ -69,7 +70,6 @@ public class LevelChanger {
 	}
 
 	path.clear();
-	return myLevel;
 
     }
 

@@ -1,19 +1,18 @@
 package controller;
 
 import model.Model;
-import model.MyModel;
 import view.Displayer;
-import view.MyView;
 import view.View;
 
 public class DisplayCommand extends Command {
 
-    View view = new MyView();
-    Model model = new MyModel();
+    Model model;
+    View view;
 
-    public DisplayCommand(Model model) {
+    public DisplayCommand(Model model, View view) {
 
 	this.model = model;
+	this.view = view;
 
     }
 

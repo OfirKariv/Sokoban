@@ -38,7 +38,6 @@ public class MyModel extends Observable implements Model {
 
 	LoadLevelFactory lvlLoad = new LoadLevelFactory();
 	setLevel(lvlLoad.setFile(path));
-	System.out.println(lvlLoad.setFile(path));
 
     }
 
@@ -63,7 +62,7 @@ public class MyModel extends Observable implements Model {
 	change.setLevel(this.getCurrentLevel());
 	GameCharacter player = myLevel.getCharacters().get(relevantPlayer);
 	Position playerPos = player.getPosition();
-	change.setLevel(myLevel);
+	System.out.println("(" + player.getPosition().getX() + "," + player.getPosition().getY() + ")");
 	switch (direction) {
 
 	case "up":
@@ -92,6 +91,7 @@ public class MyModel extends Observable implements Model {
 
 	}
 
+	change.LevelChange();
 	setLevel(change.getLevel());
 	if (myLevel.isComplete()) {
 	    System.out.println("Level completed!");

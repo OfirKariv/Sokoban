@@ -26,7 +26,7 @@ public class MySokobanController implements Observer {
 
     protected void initCommands() {
 	invoke = new HashMap<String, Command>();
-	invoke.put("Display", new DisplayCommand(model));
+	invoke.put("Display", new DisplayCommand(model, view));
 	invoke.put("Move", new MoveCommand(model));
 	invoke.put("Load", new LoadCommand(model));
 	invoke.put("Exit", new ExitCommand());
@@ -35,7 +35,6 @@ public class MySokobanController implements Observer {
 
     public void update(Observable o, Object arg) {
 
-	System.out.println("update of MySokobancontroler");
 	LinkedList<String> params = (LinkedList<String>) arg;
 	String commandKey = params.removeFirst();
 	Command c = invoke.get(commandKey);

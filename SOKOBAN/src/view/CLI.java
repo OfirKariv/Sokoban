@@ -15,7 +15,6 @@ import model.policy.Policy;
 public class CLI extends Observable implements View {
 
     private int relevantPlayer;
-    private Level mylevel = new Level();
     private HashMap<String, Command> invoke;
 
     public CLI() {
@@ -88,7 +87,7 @@ public class CLI extends Observable implements View {
     public void Display(Level myLevel) {
 
 	TxtDisplayer dis = new TxtDisplayer();
-	dis.display(mylevel);
+	dis.display(myLevel);
 
     }
 
