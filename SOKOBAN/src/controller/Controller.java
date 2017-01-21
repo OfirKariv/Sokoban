@@ -32,13 +32,13 @@ public class Controller {
 	    public void run() {
 		while (!stop) {
 		    try {
-
+			System.out.println("text");
 			Command cmd = queue.poll(1, TimeUnit.SECONDS);
-			if (cmd != null) {
-
+			if (cmd != null)
 			    cmd.execute();
+			else
+			    Thread.sleep();
 
-			}
 		    } catch (InterruptedException e) { // TODO Auto-generated
 						       // catch block
 			e.printStackTrace();

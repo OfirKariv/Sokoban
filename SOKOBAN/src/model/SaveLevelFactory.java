@@ -22,14 +22,10 @@ public class SaveLevelFactory {
 
     }
 
-    public Level setFile(String path) {
+    public void setFile(Level myLevel, String path) {
 
-	Level myLevel = new Level();
-	String[] args = path.split("\\.");
-
-	String s[] = args[1].split("\\.");
-	fileType.get(s[1]).saveLevel(myLevel, args[1]);
-	return myLevel;
+	String[] s = path.split("\\.");
+	fileType.get(s[1]).saveLevel(myLevel, path);
 
     }
 

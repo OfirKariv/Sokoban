@@ -10,8 +10,8 @@ import model.policy.LevelChanger;
 
 public class MyModel extends Observable implements Model {
 
-    Level myLevel = null;
-    LevelChanger change = new LevelChanger();
+    private Level myLevel = null;
+    private LevelChanger change = new LevelChanger();
     private int relevantPlayer;
 
     public MyModel() {
@@ -28,13 +28,6 @@ public class MyModel extends Observable implements Model {
     }
 
     @Override
-    public void notifyObservers(Object arg) {
-
-	System.out.println(arg);
-
-    }
-
-    @Override
     public void load(String path) {
 
 	LoadLevelFactory lvlLoad = new LoadLevelFactory();
@@ -46,7 +39,7 @@ public class MyModel extends Observable implements Model {
     public void save(String path) {
 
 	SaveLevelFactory lvlSav = new SaveLevelFactory();
-	setLevel(lvlSav.setFile(path));
+	lvlSav.setFile(getCurrentLevel(), path);
 
     }
 
@@ -94,6 +87,7 @@ public class MyModel extends Observable implements Model {
 	change.LevelChange();
 	setLevel(change.getLevel());
 
+	this.setChanged();
 	LinkedList<String> params = new LinkedList<String>();
 	params.add("Display");
 	this.notifyObservers(params);

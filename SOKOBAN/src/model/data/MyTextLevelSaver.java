@@ -3,7 +3,6 @@ package model.data;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
@@ -14,7 +13,7 @@ import model.data.util.Level;
 public class MyTextLevelSaver implements LevelSaver {
 
     @Override
-    public OutputStream saveLevel(Level outlevel, String s) {
+    public void saveLevel(Level outlevel, String s) {
 
 	PrintWriter out;
 	try {
@@ -46,7 +45,7 @@ public class MyTextLevelSaver implements LevelSaver {
 
 	    e.printStackTrace();
 	}
-	return null;
+
     }
 
 }

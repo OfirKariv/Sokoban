@@ -13,8 +13,6 @@ public class LoadCommand extends Command {
     @Override
     public void execute() {
 
-	System.out.println("Params(0): " + params.get(0));
-
 	model.load(params.get(0));
 
     }
