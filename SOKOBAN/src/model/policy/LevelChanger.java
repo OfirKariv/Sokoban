@@ -12,13 +12,14 @@ import model.data.util.Target;
 
 public class LevelChanger {
 
-    private Policy policy = null;
+    private Policy policy;
     private int revelantPlayer;
     private ArrayList<GameObject> path = new ArrayList<GameObject>();
     private Level myLevel = new Level();
 
     public LevelChanger() {
 	setRevelantPlayer(0); // default
+	policy = new MySokobanPolicy();
 
     }
 

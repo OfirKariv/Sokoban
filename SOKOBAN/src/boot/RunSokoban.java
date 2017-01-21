@@ -3,6 +3,8 @@ package boot;
 
 import controller.MySokobanController;
 import model.MyModel;
+import model.policy.MySokobanPolicy;
+import model.policy.Policy;
 import view.CLI;
 
 public class RunSokoban {
@@ -10,7 +12,7 @@ public class RunSokoban {
     public static void main(String[] args)
 
     {
-
+	Policy policy = new MySokobanPolicy();
 	CLI ui = new CLI();
 	MyModel m = new MyModel();
 	MySokobanController c = new MySokobanController(m, ui);

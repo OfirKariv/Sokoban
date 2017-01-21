@@ -35,8 +35,9 @@ public class Controller {
 
 			Command cmd = queue.poll(1, TimeUnit.SECONDS);
 			if (cmd != null) {
-			    System.out.println("in controller, now execute");
+
 			    cmd.execute();
+
 			}
 		    } catch (InterruptedException e) { // TODO Auto-generated
 						       // catch block

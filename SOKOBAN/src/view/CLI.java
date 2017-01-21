@@ -7,10 +7,7 @@ import java.util.Observable;
 import java.util.Scanner;
 
 import controller.Command;
-import controller.DisplayCommand;
-import controller.MoveCommand;
 import model.data.util.Level;
-import model.policy.Policy;
 
 public class CLI extends Observable implements View {
 
@@ -35,12 +32,6 @@ public class CLI extends Observable implements View {
      * @param policy
      * @param displayer
      */
-    public void setup(Policy policy, Displayer displayer) {
-
-	((MoveCommand) invoke.get("Move")).setup(relevantPlayer, policy);
-	((DisplayCommand) invoke.get("Display")).setup(displayer);
-
-    }
 
     @SuppressWarnings("resource")
     /**

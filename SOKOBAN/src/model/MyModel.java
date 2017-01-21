@@ -1,5 +1,6 @@
 package model;
 
+import java.util.LinkedList;
 import java.util.Observable;
 
 import common.Position;
@@ -62,7 +63,6 @@ public class MyModel extends Observable implements Model {
 	change.setLevel(this.getCurrentLevel());
 	GameCharacter player = myLevel.getCharacters().get(relevantPlayer);
 	Position playerPos = player.getPosition();
-	System.out.println("(" + player.getPosition().getX() + "," + player.getPosition().getY() + ")");
 	switch (direction) {
 
 	case "up":
@@ -93,6 +93,11 @@ public class MyModel extends Observable implements Model {
 
 	change.LevelChange();
 	setLevel(change.getLevel());
+
+	LinkedList<String> params = new LinkedList<String>();
+	params.add("Display");
+	this.notifyObservers(params);
+
 	if (myLevel.isComplete()) {
 	    System.out.println("Level completed!");
 
