@@ -4,7 +4,7 @@ import model.Model;
 import model.policy.LevelChanger;
 import model.policy.Policy;
 
-public class MoveCommand extends Command {
+public class MoveCommand extends SokobanCommand {
 
     private LevelChanger change = new LevelChanger();
     private Model model;

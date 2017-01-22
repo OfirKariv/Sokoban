@@ -4,7 +4,7 @@ import model.Model;
 import view.Displayer;
 import view.View;
 
-public class DisplayCommand extends Command {
+public class DisplayCommand extends SokobanCommand {
 
     Model model;
     View view;

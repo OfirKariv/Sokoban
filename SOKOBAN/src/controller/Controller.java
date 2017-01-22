@@ -6,15 +6,15 @@ import java.util.concurrent.TimeUnit;
 
 public class Controller {
 
-    private BlockingQueue<Command> queue = null;
+    private BlockingQueue<SokobanCommand> queue = null;
     private boolean stop = false;
 
     public Controller() {
 
-	queue = new ArrayBlockingQueue<Command>(15);
+	queue = new ArrayBlockingQueue<SokobanCommand>(15);
     }
 
-    public void insertCommand(Command cmd) {
+    public void insertCommand(SokobanCommand cmd) {
 
 	try {
 	    queue.put(cmd);
@@ -32,12 +32,10 @@ public class Controller {
 	    public void run() {
 		while (!stop) {
 		    try {
-			System.out.println("text");
-			Command cmd = queue.poll(1, TimeUnit.SECONDS);
+
+			SokobanCommand cmd = queue.poll(1, TimeUnit.SECONDS);
 			if (cmd != null)
 			    cmd.execute();
-			else
-			    Thread.sleep();
 
 		    } catch (InterruptedException e) { // TODO Auto-generated
 						       // catch block
@@ -50,6 +48,12 @@ public class Controller {
 	});
 
 	thread.start();
+
+    }
+
+    public void stop() {
+
+	stop = true;
 
     }
 

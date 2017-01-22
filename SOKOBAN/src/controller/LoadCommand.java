@@ -2,7 +2,7 @@ package controller;
 
 import model.Model;
 
-public class LoadCommand extends Command {
+public class LoadCommand extends SokobanCommand {
 
     private Model model;
 

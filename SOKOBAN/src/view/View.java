@@ -10,4 +10,6 @@ public interface View {
 
     public void start();
 
+    public void stop();
+
 }

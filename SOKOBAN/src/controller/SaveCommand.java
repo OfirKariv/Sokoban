@@ -7,7 +7,7 @@ import model.Model;
 import model.MyModel;
 import model.data.LevelSaver;
 
-public class SaveCommand extends Command {
+public class SaveCommand extends SokobanCommand {
     private Model model;
     HashMap<String, LevelSaver> filetype;
 

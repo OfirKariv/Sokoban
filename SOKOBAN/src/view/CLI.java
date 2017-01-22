@@ -6,13 +6,14 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Scanner;
 
-import controller.Command;
+import controller.SokobanCommand;
 import model.data.util.Level;
 
 public class CLI extends Observable implements View {
 
     private int relevantPlayer;
-    private HashMap<String, Command> invoke;
+    private HashMap<String, SokobanCommand> invoke;
+    private boolean stop = false;
 
     public CLI() {
 
@@ -51,7 +52,7 @@ public class CLI extends Observable implements View {
 		System.out.println("Move {up,down,left,right}:");
 		System.out.println("Save");
 		System.out.println("Exit\n");
-		while (true) {
+		while (!stop) {
 		    String[] sa;
 		    String commandline;
 
@@ -87,6 +88,11 @@ public class CLI extends Observable implements View {
 	System.out.println(s);
 
     }
+
+    public void stop() {
+	stop = true;
+    }
+
 }
 
 // mylevel = invoke.get(sa[0]).execute(sa, mylevel);

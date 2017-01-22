@@ -1,13 +1,7 @@
 package controller;
 
-import java.util.List;
+public interface Command {
 
-public abstract class Command {
-    protected List<String> params;
+    public void execute();
 
-    public void setParams(List<String> params) {
-	this.params = params;
-    }
-
-    public abstract void execute();
 }

@@ -37,7 +37,7 @@ public class MySokobanController implements Observer {
 
 	LinkedList<String> params = (LinkedList<String>) arg;
 	String commandKey = params.removeFirst();
-	Command c = invoke.get(commandKey);
+	SokobanCommand c = (SokobanCommand) invoke.get(commandKey);
 
 	if (c == null) {
 
@@ -49,4 +49,16 @@ public class MySokobanController implements Observer {
 
     }
 
+    public class ExitCommand extends SokobanCommand {
+
+	@Override
+	public void execute() {
+	    System.out.println("Exiting..");
+
+	    controller.stop();
+	    view.stop();
+
+	}
+
+    }
 }
