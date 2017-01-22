@@ -17,12 +17,6 @@ public class CLI extends Observable implements View {
 
     public CLI() {
 
-	/*
-	 * invoke = new HashMap<String, Command>(); invoke.put("Display", new
-	 * DisplayCommand()); invoke.put("Move", new MoveCommand());
-	 * invoke.put("Load", new LoadCommand()); invoke.put("Exit", new
-	 * ExitCommand()); invoke.put("Save", new SaveCommand());
-	 */
 	relevantPlayer = 0;
 
     }
@@ -36,8 +30,8 @@ public class CLI extends Observable implements View {
 
     @SuppressWarnings("resource")
     /**
-     * Game manager - type work exactly as said. Move example: Move up Load/Save
-     * example : Load c:/dir/file.txt
+     * Game manager - type work exactly as said. Move example: Move up Load Save
+     * example - Load c:/dir/file.txt
      */
     public void start() {
 	Scanner in = new Scanner(System.in);
@@ -52,11 +46,13 @@ public class CLI extends Observable implements View {
 		System.out.println("Move {up,down,left,right}:");
 		System.out.println("Save");
 		System.out.println("Exit\n");
-		while (!stop) {
+		for (;;) {
+
 		    String[] sa;
 		    String commandline;
 
 		    System.out.println("Please choose option:");
+
 		    commandline = in.nextLine();
 
 		    sa = commandline.split(" ");
@@ -91,6 +87,8 @@ public class CLI extends Observable implements View {
 
     public void stop() {
 	stop = true;
+	System.exit(0);
+
     }
 
 }
