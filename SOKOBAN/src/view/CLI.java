@@ -75,7 +75,7 @@ public class CLI extends Observable implements View {
     public void Display(Level myLevel) {
 
 	TxtDisplayer dis = new TxtDisplayer();
-	dis.display(myLevel);
+	dis.display(myLevel.getCharMat());
 
     }
 

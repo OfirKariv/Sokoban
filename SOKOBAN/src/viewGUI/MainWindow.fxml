@@ -34,14 +34,14 @@
           </Menu>
         </menus>
       </MenuBar>
-   </top>
+   </top>	
    <left>
       <VBox prefHeight="25.0" prefWidth="77.0" BorderPane.alignment="CENTER">
 
       </VBox>
    </left>
    <center>
-      <LevelDisplayer height="311.0" width="448.0" BorderPane.alignment="CENTER" wallFileName="./resources/wall.jpg" floorFileName="./resources/floor.jpg" boxFileName="./resources/box.jpg" targetFileName="./resources/target.jpg" charaFileName="./resources/character.jpg"/> 
+        <LevelDisplayer fx:id="LevelDisplayer" height="300.0" width="300.0" BorderPane.alignment="CENTER" wallFileName="./resources/wall.jpg" charaFileName="./resources/character.jpg" />
    </center>
 </BorderPane>
 

@@ -8,10 +8,12 @@ import java.util.Observable;
 import javafx.fxml.FXML;
 import javafx.stage.FileChooser;
 import model.data.util.Level;
+import view.Displayer;
 import view.View;
 
 public class MainWindowController extends Observable implements View {
     List<String> params;
+    Displayer displayer = new LevelDisplayer();
 
     public void setParams(List<String> params) {
 
@@ -69,7 +71,8 @@ public class MainWindowController extends Observable implements View {
 
     @Override
     public void Display(Level myLevel) {
-	// TODO Auto-generated method stub
+
+	displayer.display(myLevel.getCharMat());
 
     }
 
