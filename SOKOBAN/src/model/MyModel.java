@@ -33,6 +33,8 @@ public class MyModel extends Observable implements Model {
 	LoadLevelFactory lvlLoad = new LoadLevelFactory();
 	setLevel(lvlLoad.setFile(path));
 
+	System.out.println("level loaded");
+
     }
 
     @Override

@@ -35,6 +35,8 @@ public class MySokobanController implements Observer {
 
     public void update(Observable o, Object arg) {
 
+	System.out.println("Got it!");
+
 	LinkedList<String> params = (LinkedList<String>) arg;
 	String commandKey = params.removeFirst();
 	SokobanCommand c = (SokobanCommand) invoke.get(commandKey);

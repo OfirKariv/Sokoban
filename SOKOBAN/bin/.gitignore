@@ -1,9 +1,6 @@
-/application/
 /boot/
 /common/
 /controller/
 /model/
 /view/
-/resources/
-/viewCLI/
 /viewGUI/
