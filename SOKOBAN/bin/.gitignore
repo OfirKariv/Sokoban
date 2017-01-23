@@ -1,6 +1,7 @@
+/application/
 /boot/
 /common/
 /controller/
 /model/
 /view/
-/application/
+/resources/
