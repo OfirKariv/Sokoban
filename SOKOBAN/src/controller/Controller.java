@@ -34,8 +34,11 @@ public class Controller {
 		    try {
 
 			SokobanCommand cmd = queue.poll(1, TimeUnit.SECONDS);
-			if (cmd != null)
+
+			if (cmd != null) {
+
 			    cmd.execute();
+			}
 
 		    } catch (InterruptedException e) { // TODO Auto-generated
 						       // catch block

@@ -219,4 +219,53 @@ public class Level implements Serializable {
 	return flag;
     }
 
+    public char[][] getCharMat() {
+
+	int x = getStaticPattern().size();
+	int y = findSize();
+	char[][] charDisplayer = new char[x][y];
+	int i = 0, j = 0;
+
+	for (ArrayList<GameObject> arr : getStaticPattern()) {
+	    for (GameObject go : arr) {
+
+		GameObject temp = null;
+		if (((go instanceof Floor) || (go instanceof Target)) && ((getMovables().get(i).get(j)) != null)) {
+		    temp = (GameObject) getMovables().get(i).get(j);
+
+		} else {
+
+		    temp = (GameObject) getStaticPattern().get(i).get(j);
+		}
+		charDisplayer[i][j] = (temp.getSign());
+		j++;
+	    }
+
+	    j = 0;
+	    i++;
+	}
+
+	return charDisplayer;
+
+    }
+
+    public int findSize() {
+
+	if (getStaticPattern() != null) {
+	    int max = 0;
+	    int temp = 0;
+	    ArrayList<ArrayList<GameObject>> mat = getStaticPattern();
+	    for (ArrayList<GameObject> arr : mat) {
+		temp = arr.size();
+		if (max < temp)
+		    max = temp;
+		return max;
+
+	    }
+
+	}
+
+	return 0;
+    }
+
 }
